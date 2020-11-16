@@ -3,6 +3,7 @@ package com.martinsiregar.bigdreamairlines.activities
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.martinsiregar.bigdreamairlines.R
 import com.martinsiregar.bigdreamairlines.helpers.DestinationAdapter
@@ -53,12 +54,13 @@ class DestinationListActivity : AppCompatActivity() {
 				if (response.isSuccessful) {
 					val destinationList : List<Destination> = response.body()!!
 					destiny_recycler_view.adapter = DestinationAdapter(destinationList)
-					Log.e("Hasil", destinationList.toString())
-
+				} else {
+					Toast.makeText(this@DestinationListActivity, "Failed to retrieve item.", Toast.LENGTH_LONG).show()
 				}
 			}
 
 			override fun onFailure(call: Call<List<Destination>>, t: Throwable) {
+				Toast.makeText(this@DestinationListActivity, "Error Occured" + t.toString(), Toast.LENGTH_LONG).show()
 
 			}
 
