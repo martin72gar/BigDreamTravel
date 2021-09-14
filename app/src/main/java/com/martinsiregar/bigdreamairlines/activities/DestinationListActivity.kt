@@ -45,7 +45,7 @@ class DestinationListActivity : AppCompatActivity() {
 
 	private fun loadDestinations() {
 
-		val destinationService : DestinationService = ServiceBuilder.buildService(DestinationService::class.java)
+		val destinationService: DestinationService = ServiceBuilder.buildService(DestinationService::class.java)
 
 		val requestCall: Call<List<Destination>> = destinationService.getDestinationList()
 
