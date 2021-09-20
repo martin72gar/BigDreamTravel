@@ -44,12 +44,11 @@ class DestinationListActivity : AppCompatActivity() {
 	}
 
 	private fun loadDestinations() {
-
 		val destinationService: DestinationService = ServiceBuilder.buildService(DestinationService::class.java)
 
 		val filter = HashMap<String, String>()
-		filter["country"] = "India"
-		filter["count"] = "1"
+//		filter["country"] = "India"
+//		filter["count"] = "1"
 
 		val requestCall: Call<List<Destination>> = destinationService.getDestinationList(filter)
 
