@@ -14,4 +14,16 @@ interface DestinationService {
 
     @POST("destination")
     fun addDestination(@Body newDestination: Destination): Call<Destination>
+
+    @FormUrlEncoded
+    @PUT("destination/{id}")
+    fun updateDestination(
+        @Path("id")id: Int,
+        @Field("city") city: String,
+        @Field("country") country: String,
+        @Field("description") description: String
+    ): Call<Destination>
+
+    @DELETE("destination/{id}")
+    fun deleteDestination(@Path("id")id: Int): Call<Unit>
 }
